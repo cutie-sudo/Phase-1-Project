@@ -22,7 +22,7 @@ DELETE /products/:id: Delete a product by ID.
 PUT /products/:id: Update a product by ID.
 
 ## Live server
-* You can view the web live on [Garage App]()
+* You can view the web live on [Fleet Management App]()
 
 ## Render
 You can view the web live on (https://phase-1-project-lt1k.onrender.com)
