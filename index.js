@@ -85,7 +85,7 @@ fetch('db.json')
 
 
   // Fetch all users
-fetch('http://localhost:3000/users')
+fetch('https://phase-1-project-lt1k.onrender.com/users')
 .then((res) => res.json())
 .then((data) => {
   const users_row = document.getElementById("users_row");
@@ -119,7 +119,7 @@ add_user_form.addEventListener("submit", (event) => {
   const email = document.getElementById("email").value;
   const imageurl = document.getElementById("imageurl").value;
 
-  fetch('http://localhost:3000/users', {
+  fetch('https://phase-1-project-lt1k.onrender.com/users', {
       method: 'POST',
       body: JSON.stringify({
           name: name,
@@ -141,7 +141,7 @@ add_user_form.addEventListener("submit", (event) => {
 
 // Delete User
 function deleteUser(id) {
-  fetch(`http://localhost:3000/users/${id}`, {
+  fetch(`https://phase-1-project-lt1k.onrender.com/users/${id}`, {
       method: 'DELETE',
   })
   .then((res) => res.json())
@@ -154,7 +154,7 @@ function deleteUser(id) {
 
 // Edit User
 function editUser(id) {
-  fetch(`http://localhost:3000/users/${id}`)
+  fetch(`https://phase-1-project-lt1k.onrender.com/users/${id}`)
   .then((res) => res.json())
   .then((data) => {
       const edit_container = document.getElementById("edit_container");
@@ -185,7 +185,7 @@ function editUser(id) {
           const email = document.getElementById("edit_email").value;
           const imageurl = document.getElementById("edit_imageurl").value;
 
-          fetch(`http://localhost:3000/users/${id}`, {
+          fetch(`https://phase-1-project-lt1k.onrender.com/users/${id}`, {
               method: 'PATCH',
               body: JSON.stringify({
                   name: name,
@@ -208,7 +208,7 @@ function editUser(id) {
 
 // View User
 function viewUser(id) {
-  fetch(`http://localhost:3000/users/${id}`)
+  fetch(`https://phase-1-project-lt1k.onrender.com/users/${id}`)
   .then((res) => res.json())
   .then((data) => {
       const single_user = document.getElementById("single_user");
