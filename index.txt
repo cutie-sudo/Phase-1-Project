@@ -1,0 +1,198 @@
+<section class="section service" id="service" aria-label="service">
+    <div class="container">
+        <p class="section-subtitle">All Services</p>
+        <h2 class="h2 section-title">Trusted For Our Services</h2>
+        <p class="section-text">
+            At Garage App, we strive to simplify your automotive experience, giving you the tools and resources you need to keep your vehicle in peak condition. Join us today and discover how our services can transform your garage management!
+        </p>
+
+        <ul class="service-list grid-list">
+            <li>
+                <div class="service-card">
+                    <div class="card-icon">
+                        <img src="./service-icon-1.png" width="80" height="60" loading="lazy" alt="Icon representing Air Freight service">
+                    </div>
+                    <h3 class="h3 card-title">
+                        <span class="span">01</span> Air Freight
+                    </h3>
+                    <p class="card-text">
+                        We offer efficient air freight solutions to ensure your cargo arrives on time and in perfect condition.
+                    </p>
+                    <a href="#" class="btn-link">
+                        <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+                        <span class="span">View Air Freight Details</span>
+                    </a>
+                </div>
+            </li>
+            <!-- Repeat similar structure for other services with varied descriptions -->
+        </ul>
+    </div>
+</section>
+
+
+
+
+
+<section class="section service" id="service" aria-label="service">
+        <div class="container">
+
+          <p class="section-subtitle">All Services</p>
+
+          <h2 class="h2 section-title">Trusted For Our Services</h2>
+
+          <p class="section-text">
+            At Garage App, we strive to simplify your automotive experience, 
+            giving you the tools and resources you need to keep your vehicle in peak condition. 
+            Join us today and discover how our services can transform your garage management!
+          </p>
+
+          <ul class="service-list grid-list">
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./service-icon-1.png" width="80" height="60" loading="lazy" alt="Truck">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <span class="span">01</span> Air Freight
+                </h3>
+
+                <p class="card-text">
+                  Our aim is to optimize and improve your supply chain so that we can give you the best service.
+                </p>
+
+                <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                  <span class="span">View Detail</span>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./service-icon-2.png" width="74" height="60" loading="lazy" alt="Ship">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <span class="span">02</span> Road Freight
+                </h3>
+
+                <p class="card-text">
+                  Our aim is to optimize and improve your supply chain so that we can give you the best service.
+                </p>
+
+                <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                  <span class="span">View Detail</span>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./service-icon-3.png" width="60" height="60" loading="lazy" alt="Airplane">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <span class="span">03</span> Ocean Freight
+                </h3>
+
+                <p class="card-text">
+                  Our aim is to optimize and improve your supply chain so that we can give you the best service.
+                </p>
+
+                <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                  <span class="span">View Detail</span>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./service-icon-4.png" width="50" height="60" loading="lazy" alt="Train">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <span class="span">04</span> Rail Freight
+                </h3>
+
+                <p class="card-text">
+                  Our aim is to optimize and improve your supply chain so that we can give you the best service.
+                </p>
+
+                <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                  <span class="span">View Detail</span>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./service-icon-5.png" width="63" height="60" loading="lazy" alt="Trolley">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <span class="span">05</span> Warehousing
+                </h3>
+
+                <p class="card-text">
+                  Our aim is to optimize and improve your supply chain so that we can give you the best service.
+                </p>
+
+                <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                  <span class="span">View Detail</span>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <div class="card-icon">
+                  <img src="./service-icon-6.png" width="46" height="60" loading="lazy" alt="Paper">
+                </div>
+
+                <h3 class="h3 card-title">
+                  <span class="span">06</span> Project Cargo
+                </h3>
+
+                <p class="card-text">
+                  Our aim is to optimize and improve your supply chain so that we can give you the best service.
+                </p>
+
+                <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                  <span class="span">View Detail</span>
+                </a>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
