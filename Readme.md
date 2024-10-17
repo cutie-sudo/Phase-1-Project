@@ -1,39 +1,51 @@
-# Garage App
-#### The app is Garage, 17/10/2024
-#### **By Faith Nguli**
-## Description
-The Garage Management App is an all-in-one solution designed to streamline and optimize operations for garages and auto repair shops. Whether you manage a small family-owned garage or a large automotive service center, this app helps you enhance efficiency, improve customer service, and increase profitability.
+|## Fleet Management App
+This application allows users to create, read, update, and delete (CRUD) vehicle records. It interacts with a local API to manage vehicles effectively.
 
-## Problem Statement
-Increased Administrative Work:Manual invoicing and paperwork consume valuable time that could be spent on repairs and customer service, reducing overall efficiency.
-Inefficient Scheduling:Manual appointment scheduling can lead to double bookings, missed appointments, and wasted time. Without an organized system, managing customer flow becomes chaotic.
-Increased Errors:Manual processes are prone to errors, whether in billing, inventory counts, or job assignments, which can lead to customer dissatisfaction and financial losses.
+## Features
+Add Vehicle: Submit a new vehicle with details like make, model, and license plate.
+View Vehicles: View a list of all vehicles fetched from the API.
+Edit Vehicle: Update the details of an existing vehicle.
+Delete Vehicle: Remove a vehicle from the list.
 
-##Solutions
-Track Parts and Supplies: Monitor inventory levels in real time, receive alerts for low stock, and streamline ordering processes to ensure essential items are always available.
-Minimized Manual Entry: Automating processes reduces human error in billing, inventory tracking, and job assignments, leading to increased accuracy.
-Automated Invoicing: Generate professional invoices quickly, with itemized details of services and parts used. Accept various payment methods for customer convenience.
-
-## Setup/Installation Instruction
-* Download a zip in the code button to the desired folder
-* Extract the files
-* Open the extracted folder with VSCode
-* Go live or open the index.html file with chrome
-* And you are all done
+## set up instruction
+Install JSON Server globally by running:
+npm install -g json-server
+## step  to run
+clone the repository 
+Start the JSON Server:http://localhost:3000
+## Open the project:
+ Open index.html in your browser to use the Product Management Application.
+ ## API Endpoints
+GET /products: Fetch all products.
+POST /products: Add a new product.
+DELETE /products/:id: Delete a product by ID.
+PUT /products/:id: Update a product by ID.
 
 ## Live server
-* You can view the web live on [Garage App](https://cutie-sudo.github.io/Phase-1-Project/)
+* You can view the web live on [Garage App]()
 
-## Known Bugs
-The application works perfectly well, no bugs.
 
-## Technologies Used
-HTML, CSS , Javascript, Json-server
+## How the Fleet Management App Works
+Fetching Vehicles: Upon loading the page, the application fetches the list of vehicles from the server and displays them dynamically.
 
-## Support and contact details
-email :: ngulifaith1@gmail.com
+Adding Vehicles: Users can fill in the vehicle form with details such as make, model, and license plate. Upon submission, the vehicle is added to the server and displayed on the page.
 
-### License
-*LIcenced under the [MT-licence](https://github.com/cutie-sudo/Phase-1-Project/blob/main/license.md*)
+Editing Vehicles: Clicking the "Edit" button for a vehicle will populate the form with the current details, allowing users to modify and save changes.
 
-Copyright (c) 2024 **Faith Nguli**
+## Problems Faced
+During the development of this application, several challenges were encountered, including:
+
+API Integration: Ensuring the application communicates effectively with the local JSON server and handles errors gracefully.
+
+Form Handling: Managing form states during the creation and editing of vehicles required careful event handling and state management.
+
+UI Updates: Dynamically updating the vehicle list in the UI after performing CRUD operations was essential for a seamless user experience.
+
+License
+This project is licensed under the MIT License ()
+
+
+
+
+
+
