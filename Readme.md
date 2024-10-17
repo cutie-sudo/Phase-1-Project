@@ -24,6 +24,9 @@ PUT /products/:id: Update a product by ID.
 ## Live server
 * You can view the web live on [Garage App]()
 
+## Render
+You can view the web live on (https://phase-1-project-lt1k.onrender.com)
+
 
 ## How the Fleet Management App Works
 Fetching Vehicles: Upon loading the page, the application fetches the list of vehicles from the server and displays them dynamically.
@@ -42,7 +45,7 @@ Form Handling: Managing form states during the creation and editing of vehicles 
 UI Updates: Dynamically updating the vehicle list in the UI after performing CRUD operations was essential for a seamless user experience.
 
 License
-This project is licensed under the MIT License ()
+This project is licensed under the MIT License (https://github.com/cutie-sudo/Phase-1-Project/blob/main/license.md*)
 
 
 
