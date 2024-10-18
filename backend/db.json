@@ -1,33 +1,32 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "email": "john.doe@example.com",
-        "name": "John Doe", 
-        "vehicles": "See Saw",
-        "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/06/original/11606.jpg"
-      },
-      {
-        "id": 2,
-        "email": "jane.smith@example.com",
-        "name": "Jane Smith",  
-        "vehicles": "Volvo",
-        "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/00/original/11600.jpg"
-      },
-      {
-        "id": 3,
-        "email": "michael.brown@example.com",
-        "name": "Michael Brown",  
-        "vehicles": "Panel",
-        "imageurl": "https://carsoko.co.ke/assets/img/product/CSLN17283815510.jpg"
-      },
-      {
-        "id": 4,
-        "email": "kenneth.black@example.com",
-        "name": "Kenneth Black",
-        "vehicles": "Box trucks",
-        "imageurl": "https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/462748109_499347613079511_8873897948661988494_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iyMb-myARNoQ7kNvgEpUTO0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=AqA8vDfL7i7ORZ0Qi9og-ut&oh=00_AYBAgkFcTlYpbZ1Da7li06bSkIbAUd-UfHsl3hmoz-m_Rg&oe=6716BD0F"
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": 1,
+      "email": "john.doe@example.com",
+      "name": "John Doe",
+      "vehicles": "See Saw",
+      "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/06/original/11606.jpg"
+    },
+    {
+      "id": 2,
+      "email": "jane.smith@example.com",
+      "name": "Jane Smith",
+      "vehicles": "Volvo",
+      "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/00/original/11600.jpg"
+    },
+    {
+      "id": 3,
+      "email": "michael.brown@example.com",
+      "name": "Michael Brown",
+      "vehicles": "Panel",
+      "imageurl": "https://carsoko.co.ke/assets/img/product/CSLN17283815510.jpg"
+    },
+    {
+      "id": 4,
+      "email": "kenneth.black@example.com",
+      "name": "Kenneth Black",
+      "vehicles": "Box trucks",
+      "imageurl": "https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/462748109_499347613079511_8873897948661988494_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iyMb-myARNoQ7kNvgEpUTO0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=AqA8vDfL7i7ORZ0Qi9og-ut&oh=00_AYBAgkFcTlYpbZ1Da7li06bSkIbAUd-UfHsl3hmoz-m_Rg&oe=6716BD0F"
+    }
+  ]
+}
