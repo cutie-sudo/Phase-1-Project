@@ -203,35 +203,3 @@ function deleteUser(id) {
       .then(() => fetchUsers());
   }
 }
-
-
-    document.getElementById('newsletter-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        
-        const emailField = document.getElementById('email');
-        const messageDiv = document.getElementById('message');
-        const email = emailField.value.trim();
-
-        // Basic email validation
-        if (!email) {
-            messageDiv.textContent = 'Please enter your email address.';
-            messageDiv.style.color = 'red';
-            return;
-        }
-
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            messageDiv.textContent = 'Please enter a valid email address.';
-            messageDiv.style.color = 'red';
-            return;
-        }
-
-        // Simulate form submission success
-        // In a real application, you would send the email to your server here
-        messageDiv.textContent = 'Thank you for subscribing!';
-        messageDiv.style.color = 'green';
-
-        // Clear the input field
-        emailField.value = '';
-    });
-
