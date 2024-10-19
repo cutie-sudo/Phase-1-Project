@@ -30,6 +30,9 @@ You can view on (https://phase-1-project-2-tjsf.onrender.com)
 ## Presentation Slides
 You can view on ([text](<../../Downloads/FLEET MANAGEMENT APP.pptx>))
 
+## LOOM
+You can listen to (https://www.loom.com/share/cc037734cda842aa9d8c185944f2c83a?sid=1d35077d-c4aa-42c6-8e46-e169ffd6a155)
+
 
 ## How the Fleet Management App Works
 Fetching Vehicles: Upon loading the page, the application fetches the list of vehicles from the server and displays them dynamically.
