@@ -2,9 +2,41 @@ body {
   font-family: Arial, sans-serif;
   background-color: #C2DDAC;
 }
+.hero-section {
+  text-align: center;
+  padding: 5rem 0; /* Adjust padding as needed */
+}
 
+.hero-title {
+  font-size: 3rem; /* Adjust font size for the title */
+  font-weight: bold; /* Make the title bold */
+  text-transform: uppercase; /* Uppercase for emphasis */
+  margin-bottom: 1rem; /* Space below the title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Subtle shadow for better readability */
+}
 
+.hero-text {
+  font-size: 1.25rem; /* Adjust font size for the text */
+  line-height: 1.5; /* Improve line spacing */
+  margin-bottom: 2rem; /* Space below the text */
+  color: black; /* Slightly transparent white for softness */
+  max-width: 600px; /* Limit width for better readability */
+  margin-left: auto; /* Center alignment */
+  margin-right: auto; /* Center alignment */
+}
 
+.btn {
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  padding: 0.75rem 1.5rem; /* Button padding */
+  border-radius: 0.5rem; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
 
 
 .user-card {
@@ -369,5 +401,98 @@ body {
 .social-link ion-icon {
   margin-left: 5px; /* Space between text and icon */
 }
+
+/* styles.css */
+
+/* Basic reset for margins and paddings */
+.body, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #007BFF; /* Example color */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #007BFF; /* Focus color */
+  outline: none;
+}
+
+button {
+  background-color: #007BFF; /* Button color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button[type="reset"] {
+  background-color: #ccc; /* Reset button color */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+button[type="reset"]:hover {
+  background-color: #aaa; /* Darker shade for reset button */
+}
+
+#confirmation-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #dff0d8; /* Light green background */
+  color: #3c763d; /* Darker green text */
+  border: 1px solid #d6e9c6; /* Green border */
+  border-radius: 4px;
+}
+
 
 

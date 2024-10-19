@@ -10,7 +10,7 @@
     <section class="section contact" id="contact" aria-label="Contact Us">
         <div class="container">
             <h2>Contact Us</h2>
-            <form action="https://your-server-endpoint.com" method="POST">
+            <form action="https://your-server-endpoint.com" method="POST" id="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required aria-required="true" placeholder="Enter your name">
@@ -32,15 +32,17 @@
         </div>
     </section>
     <script>
-        // Optional: Add JavaScript to handle form submission confirmation
-        const form = document.querySelector('form');
+        const form = document.getElementById('contact-form');
         const confirmationMessage = document.getElementById('confirmation-message');
 
         form.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
-            confirmationMessage.style.display = 'block'; // Show confirmation message
-            form.reset(); // Reset form fields
-            // Here you can add your AJAX call to submit the form data if needed
+            
+            // Optional: Perform AJAX submission here if needed
+            
+            // Show confirmation message and reset the form
+            confirmationMessage.style.display = 'block';
+            form.reset();
         });
     </script>
 </body>

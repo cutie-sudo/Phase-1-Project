@@ -25,7 +25,10 @@ PUT /products/:id: Update a product by ID.
 * You can view the web live on [Fleet Management App](https://cutie-sudo.github.io/Phase-1-Project/)
 
 ## Render
-You can view the web live on (https://phase-1-project-lt1k.onrender.com)
+You can view on (https://phase-1-project-2-tjsf.onrender.com)
+
+## Presentation Slides
+You can view on ([text](<../../Downloads/FLEET MANAGEMENT APP.pptx>))
 
 
 ## How the Fleet Management App Works
