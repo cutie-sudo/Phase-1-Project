@@ -1,144 +1,237 @@
-// Fetch all users
-fetch('http://localhost:3000/users')
-  .then((res) => res.json())
-  .then((data) => {
-    const users_row = document.getElementById("users_row");
-    users_row.innerHTML = "";  // Clear the user list
+const apiUrl = 'http://localhost:3000/users';
 
-    data.forEach(user => {
-      users_row.innerHTML += `
-        <div class="col-md-3 mb-2">
-          <div class="bg-light p-1 border">
-            <img src="${user.imageurl}" class="img-fluid" />
-            <h6 class="fw-bold">${user.name}</h6>
-            <div class="row">
-              <p class="col">${user.email}</p>
+// Load Users on Page Load
+document.addEventListener('DOMContentLoaded', fetchUsers);
+
+// Fetch and Display Users
+function fetchUsers() {
+  fetch(apiUrl)
+    .then((res) => res.json())
+    .then((users) => {
+      const usersRow = document.getElementById('users_row');
+      usersRow.innerHTML = '';
+      users.forEach((user) => {
+        const userCard = `
+          <div class="col-md-4 user-card">
+            <div class="card">
+              <img src="${user.imageurl}" class="card-img-top" alt="${user.name}">
+              <div class="card-body user-card-body">
+                <h5 class="card-title">${user.name} (${user.role})</h5>
+                <p class="card-text">Email: ${user.email}</p>
+                <p class="card-text">Phone: ${user.phone}</p>
+                <p class="card-text">Vehicle: ${user.vehicles.model} (${user.vehicles.year})</p>
+                <p class="card-text">Color: ${user.vehicles.color}, Condition: ${user.vehicles.condition}</p>
+                <button class="btn btn-primary btn-action" onclick="viewUser(${user.id})">View</button>
+                <button class="btn btn-warning btn-action" onclick="editUser(${user.id})">Edit</button>
+                <button class="btn btn-danger btn-action" onclick="deleteUser(${user.id})">Delete</button>
+                <button class="btn btn-secondary btn-action" onclick="viewOrders(${user.id})">View Orders</button>
+                <button class="btn btn-success btn-action" onclick="addOrder(${user.id})">Add Order</button>
+              </div>
             </div>
-            <button onclick="deleteUser('${user.id}')" class="btn btn-danger btn-sm">Delete</button>
-            <button onclick="editUser('${user.id}')" class="btn btn-success ms-4 btn-sm">Update</button>
-            <button onclick="viewUser('${user.id}')" class="btn btn-primary ms-4 btn-sm">View User</button>
           </div>
-        </div>
-      `;
+        `;
+        usersRow.innerHTML += userCard;
+      });
     });
-  });
+}
 
-// Add User
-const add_user_form = document.getElementById("add_user_form");
+// View User Details
+function viewUser(id) {
+  fetch(`${apiUrl}/${id}`)
+    .then((res) => res.json())
+    .then((user) => {
+      let orderDetails = '';
+      if (user.orders) {
+        user.orders.forEach(order => {
+          orderDetails += `<li>Order ID: ${order.order_id} - ${order.item} (${order.status}) on ${order.date}</li>`;
+        });
+      } else {
+        orderDetails = '<li>No orders found</li>';
+      }
 
-add_user_form.addEventListener("submit", (event) => {
-    event.preventDefault();
+      document.getElementById('viewUserDetails').innerHTML = `
+        <h3>${user.name} (${user.role})</h3>
+        <p>Email: ${user.email}</p>
+        <p>Phone: ${user.phone}</p>
+        <p>Vehicle: ${user.vehicles.model} (${user.vehicles.year})</p>
+        <p>Color: ${user.vehicles.color}, Condition: ${user.vehicles.condition}</p>
+        <h5>Orders</h5>
+        <ul>${orderDetails}</ul>
+        <img src="${user.imageurl}" alt="${user.name}" style="width: 100%;">
+      `;
+      new bootstrap.Modal(document.getElementById('viewUserModal')).show();
+    });
+}
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const imageurl = document.getElementById("imageurl").value;
+// View Orders Modal
+function viewOrders(userId) {
+  fetch(`${apiUrl}/${userId}`)
+    .then(res => res.json())
+    .then(user => {
+      let orderList = '';
+      if (user.orders && user.orders.length > 0) {
+        user.orders.forEach(order => {
+          orderList += `<li>Order ID: ${order.order_id} - ${order.item} (${order.status}) on ${order.date}</li>`;
+        });
+      } else {
+        orderList = '<li>No orders available for this user</li>';
+      }
 
-    fetch('http://localhost:3000/users', {
-        method: 'POST',
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            imageurl: imageurl,
-            vehicles: []
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
+      document.getElementById('viewUserDetails').innerHTML = `
+        <h5>Orders for ${user.name}</h5>
+        <ul>${orderList}</ul>
+      `;
+      new bootstrap.Modal(document.getElementById('viewUserModal')).show();
+    });
+}
+
+// Add New Order
+function addOrder(userId) {
+  const orderId = Math.floor(Math.random() * 10000); // Generate random order ID
+  const item = prompt('Enter the order item (e.g., Car Maintenance):');
+  const status = 'Pending'; // Default status when adding a new order
+  const date = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+
+  const newOrder = {
+    order_id: orderId,
+    item,
+    status,
+    date
+  };
+
+  fetch(`${apiUrl}/${userId}`)
+    .then(res => res.json())
+    .then(user => {
+      user.orders = user.orders ? [...user.orders, newOrder] : [newOrder];
+      return fetch(`${apiUrl}/${userId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+      });
     })
-    .then((response) => response.json())
-    .then((res) => {
-        const message = document.getElementById("message");
-        message.innerText = "User created successfully";
-        location.reload();  // Reload to update the list
+    .then(() => {
+      alert('Order added successfully!');
+      fetchUsers();
+    });
+}
+
+// Add New User
+document.getElementById('add_user_form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const vehicles = {
+    model: document.getElementById('vehicles').value,
+    year: document.getElementById('vehicle_year').value,
+    color: document.getElementById('vehicle_color').value,
+    condition: document.getElementById('vehicle_condition').value
+  };
+  const imageurl = document.getElementById('imageurl').value;
+  const role = document.getElementById('role').value;
+  const phone = document.getElementById('phone').value;
+
+  const newUser = { name, email, vehicles, imageurl, role, phone };
+
+  fetch(apiUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newUser),
+  })
+    .then((res) => res.json())
+    .then(() => {
+      fetchUsers();
+      document.getElementById('add_user_form').reset();
+      document.querySelector('#addUserModal .btn-close').click();
+    });
+});
+
+// Edit User
+function editUser(id) {
+  fetch(`${apiUrl}/${id}`)
+    .then((res) => res.json())
+    .then((user) => {
+      document.getElementById('edit_user_id').value = user.id;
+      document.getElementById('edit_name').value = user.name;
+      document.getElementById('edit_email').value = user.email;
+      document.getElementById('edit_vehicles').value = user.vehicles.model;
+      document.getElementById('edit_vehicle_year').value = user.vehicles.year;
+      document.getElementById('edit_vehicle_color').value = user.vehicles.color;
+      document.getElementById('edit_vehicle_condition').value = user.vehicles.condition;
+      document.getElementById('edit_imageurl').value = user.imageurl;
+      document.getElementById('edit_role').value = user.role;
+      document.getElementById('edit_phone').value = user.phone;
+      new bootstrap.Modal(document.getElementById('editUserModal')).show();
+    });
+}
+
+document.getElementById('edit_user_form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const id = document.getElementById('edit_user_id').value;
+  const name = document.getElementById('edit_name').value;
+  const email = document.getElementById('edit_email').value;
+  const vehicles = {
+    model: document.getElementById('edit_vehicles').value,
+    year: document.getElementById('edit_vehicle_year').value,
+    color: document.getElementById('edit_vehicle_color').value,
+    condition: document.getElementById('edit_vehicle_condition').value
+  };
+  const imageurl = document.getElementById('edit_imageurl').value;
+  const role = document.getElementById('edit_role').value;
+  const phone = document.getElementById('edit_phone').value;
+
+  const updatedUser = { name, email, vehicles, imageurl, role, phone };
+
+  fetch(`${apiUrl}/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(updatedUser),
+  })
+    .then((res) => res.json())
+    .then(() => {
+      fetchUsers();
+      document.querySelector('#editUserModal .btn-close').click();
     });
 });
 
 // Delete User
 function deleteUser(id) {
-    fetch(`http://localhost:3000/users/${id}`, {
-        method: 'DELETE',
+  if (confirm('Are you sure you want to delete this user?')) {
+    fetch(`${apiUrl}/${id}`, {
+      method: 'DELETE',
     })
-    .then((res) => res.json())
-    .then(() => {
-        const message = document.getElementById("delete_message");
-        message.innerText = "User deleted successfully";
-        location.reload();  // Reload to update the list
-    });
+      .then((res) => res.json())
+      .then(() => fetchUsers());
+  }
 }
 
-// Edit User
-function editUser(id) {
-    fetch(`http://localhost:3000/users/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-        const edit_container = document.getElementById("edit_container");
 
-        edit_container.innerHTML = `
-            <h5>Edit User</h5>
-            <div id="update_message" class="text-success"></div>
-            <form id="update_user_form">
-              <div class="mb-3">
-                <input type="text" class="form-control" id="edit_name" value="${data.name}" required>
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" id="edit_email" value="${data.email}" required>
-              </div>
-              <div class="mb-3">
-                <input type="text" class="form-control" id="edit_imageurl" value="${data.imageurl}" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Update</button>
-            </form>
-        `;
+    document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        const emailField = document.getElementById('email');
+        const messageDiv = document.getElementById('message');
+        const email = emailField.value.trim();
 
-        const edit_form = document.getElementById("update_user_form");
+        // Basic email validation
+        if (!email) {
+            messageDiv.textContent = 'Please enter your email address.';
+            messageDiv.style.color = 'red';
+            return;
+        }
 
-        edit_form.addEventListener("submit", (event) => {
-            event.preventDefault();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            messageDiv.textContent = 'Please enter a valid email address.';
+            messageDiv.style.color = 'red';
+            return;
+        }
 
-            const name = document.getElementById("edit_name").value;
-            const email = document.getElementById("edit_email").value;
-            const imageurl = document.getElementById("edit_imageurl").value;
+        // Simulate form submission success
+        // In a real application, you would send the email to your server here
+        messageDiv.textContent = 'Thank you for subscribing!';
+        messageDiv.style.color = 'green';
 
-            fetch(`http://localhost:3000/users/${id}`, {
-                method: 'PATCH',
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    imageurl: imageurl
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-            .then((response) => response.json())
-            .then(() => {
-                const update_message = document.getElementById("update_message");
-                update_message.innerText = "User updated successfully";
-                location.reload();  // Reload to update the list
-            });
-        });
+        // Clear the input field
+        emailField.value = '';
     });
-}
 
-// View User
-function viewUser(id) {
-    fetch(`http://localhost:3000/users/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-        const single_user = document.getElementById("single_user");
-
-        single_user.innerHTML = `
-          <div class="mb-2">
-            <div class="bg-light p-1 border">
-              <img src="${data.imageurl}" class="img-fluid" />
-              <h6 class="fw-bold">${data.name}</h6>
-              <div class="row">
-                <p class="col">${data.email}</p>
-              </div>
-              <button onclick="deleteUser('${data.id}')" class="btn btn-danger btn-sm">Delete</button>
-              <button onclick="editUser('${data.id}')" class="btn btn-success ms-4 btn-sm">Update</button>
-            </div>
-          </div>
-        `;
-    });
-}

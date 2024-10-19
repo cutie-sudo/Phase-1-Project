@@ -1,32 +1,114 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "john.doe@example.com",
       "name": "John Doe",
-      "vehicles": "See Saw",
-      "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/06/original/11606.jpg"
+      "vehicles": {
+        "model": "See Saw",
+        "year": 2018,
+        "color": "Red",
+        "condition": "Used"
+      },
+      "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/06/original/11606.jpg",
+      "role": "admin",
+      "phone": "+1234567890",
+      "registered_at": "2024-01-15",
+      "orders": [
+        {
+          "order_id": 1001,
+          "item": "Car Maintenance",
+          "status": "Completed",
+          "date": "2024-10-10"
+        },
+        {
+          "order_id": 2156,
+          "item": "none",
+          "status": "Pending",
+          "date": "2024-10-19"
+        }
+      ],
+      "ratings": [
+        {
+          "rating_id": 1,
+          "stars": 4,
+          "comment": "Great service!"
+        }
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "jane.smith@example.com",
       "name": "Jane Smith",
-      "vehicles": "Volvo",
-      "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/00/original/11600.jpg"
+      "vehicles": {
+        "model": "Volvo",
+        "year": 2020,
+        "color": "Black",
+        "condition": "New"
+      },
+      "imageurl": "https://carshop.mu/wp-content/uploads/at_usr_data/car/00/original/11600.jpg",
+      "role": "customer",
+      "phone": "+1987654321",
+      "registered_at": "2024-02-10",
+      "orders": [
+        {
+          "order_id": 1002,
+          "item": "Oil Change",
+          "status": "Pending",
+          "date": "2024-10-15"
+        },
+        {
+          "order_id": 3187,
+          "item": null,
+          "status": "Pending",
+          "date": "2024-10-19"
+        }
+      ],
+      "ratings": [
+        {
+          "rating_id": 2,
+          "stars": 5,
+          "comment": "Loved the experience!"
+        }
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "email": "michael.brown@example.com",
       "name": "Michael Brown",
-      "vehicles": "Panel",
-      "imageurl": "https://carsoko.co.ke/assets/img/product/CSLN17283815510.jpg"
+      "vehicles": {
+        "model": "Panel",
+        "year": 2019,
+        "color": "Blue",
+        "condition": "Used"
+      },
+      "imageurl": "https://carsoko.co.ke/assets/img/product/CSLN17283815510.jpg",
+      "role": "customer",
+      "phone": "+1123456789",
+      "registered_at": "2024-03-12",
+      "orders": [
+        {
+          "order_id": 9920,
+          "item": "car maintained well ",
+          "status": "Pending",
+          "date": "2024-10-19"
+        }
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "email": "kenneth.black@example.com",
       "name": "Kenneth Black",
-      "vehicles": "Box trucks",
-      "imageurl": "https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/462748109_499347613079511_8873897948661988494_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iyMb-myARNoQ7kNvgEpUTO0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=AqA8vDfL7i7ORZ0Qi9og-ut&oh=00_AYBAgkFcTlYpbZ1Da7li06bSkIbAUd-UfHsl3hmoz-m_Rg&oe=6716BD0F"
+      "vehicles": {
+        "model": "Box trucks",
+        "year": 2022,
+        "color": "White",
+        "condition": "New"
+      },
+      "imageurl": "https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/462748109_499347613079511_8873897948661988494_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=iyMb-myARNoQ7kNvgEpUTO0&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=AqA8vDfL7i7ORZ0Qi9og-ut&oh=00_AYBAgkFcTlYpbZ1Da7li06bSkIbAUd-UfHsl3hmoz-m_Rg&oe=6716BD0F",
+      "role": "admin",
+      "phone": "+1212345678",
+      "registered_at": "2024-04-01"
     }
   ]
 }
