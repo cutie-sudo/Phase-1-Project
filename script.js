@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/users';
+const apiUrl = 'https://phase-1-project-2-tjsf.onrender.com/users';
 
 // Load Users on Page Load
 document.addEventListener('DOMContentLoaded', fetchUsers);
